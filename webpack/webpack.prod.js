@@ -6,6 +6,16 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const common = require('./webpack.common.js');
 
+// Create patterns for CopyPlugin
+const patterns = ['fonts', 'images', 'plugins'].map((item) => {
+  const obj = {
+    from: path.resolve('.', `src/${item}`),
+    to: `./${item}`,
+    noErrorOnMissing: true,
+  };
+  return obj;
+});
+
 module.exports = merge(common, {
   mode: 'production',
   devtool: 'source-map',
@@ -23,18 +33,7 @@ module.exports = merge(common, {
       cleanOnceBeforeBuildPatterns: [path.resolve('.', 'build')],
     }),
     new CopyPlugin({
-      patterns: [
-        {
-          from: path.resolve('.', 'src/fonts'),
-          to: './fonts',
-          noErrorOnMissing: true,
-        },
-        {
-          from: path.resolve('.', 'src/images'),
-          to: './images',
-          noErrorOnMissing: true,
-        },
-      ],
+      patterns,
     }),
   ],
 });

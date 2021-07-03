@@ -1,12 +1,45 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const fs = require('fs');
+
+// Prepare plugins
+const plugins = [
+  new MiniCssExtractPlugin({
+    filename: './style/main.css?v=[contenthash]',
+  }),
+  new HtmlWebpackPlugin({
+    template: 'src/index.html',
+    inject: 'body',
+    filename: 'index.html',
+    minify: {
+      minifyJS: true,
+      minifyCSS: true,
+      minifyURLs: true,
+    },
+  }),
+];
+// Create more HtmlWebpackPlugin
+const files = fs.readdirSync(path.resolve('.', 'src/pages'), 'utf8');
+files.forEach((file) => {
+  const page = new HtmlWebpackPlugin({
+    template: `src/pages/${file}`,
+    inject: 'body',
+    filename: `pages/${file}`,
+    minify: {
+      minifyJS: true,
+      minifyCSS: true,
+      minifyURLs: true,
+    },
+  });
+  plugins.push(page);
+});
 
 module.exports = {
   entry: './src/scripts/index.js',
   output: {
     path: path.resolve('.', 'build'),
-    filename: './js/bundle.js',
+    filename: './js/bundle.js?v=[contenthash]',
   },
   module: {
     rules: [
@@ -23,6 +56,15 @@ module.exports = {
           'css-loader',
           'sass-loader',
           'import-glob-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              postcssOptions: {
+                plugins: () => [require('autoprefixer')],
+              },
+            },
+          },
         ],
       },
       {
@@ -39,29 +81,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'src/index.html',
-      inject: 'body',
-      filename: 'index.html',
-      minify: {
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true,
-      },
-    }),
-    new HtmlWebpackPlugin({
-      template: 'src/pages/photo.html',
-      inject: 'body',
-      filename: 'pages/photo.html',
-      minify: {
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true,
-      },
-    }),
-    new MiniCssExtractPlugin({
-      filename: './style/main.css',
-    }),
-  ],
+  plugins,
 };
