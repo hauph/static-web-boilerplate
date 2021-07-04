@@ -1,7 +1,8 @@
 import './styles';
 // import { loadCDN } from './loaders/loader';
 
-// loadCDN();
 console.log('script loads!');
+
+// loadCDN();
 
 // $('p').css('color', 'red');

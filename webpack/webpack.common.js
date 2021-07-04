@@ -61,7 +61,7 @@ module.exports = {
             options: {
               sourceMap: true,
               postcssOptions: {
-                plugins: () => [require('autoprefixer')],
+                plugins: ['autoprefixer'],
               },
             },
           },
