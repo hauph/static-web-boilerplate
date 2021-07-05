@@ -1,8 +1,7 @@
-import './styles';
-// import { loadCDN } from './loaders/loader';
+import './style-script/style-script'; // NEVER REMOVE THIS
 
 console.log('script loads!');
 
-// loadCDN();
-
-// $('p').css('color', 'red');
+$(document).ready(() => {
+  $('p').css('color', 'red');
+});

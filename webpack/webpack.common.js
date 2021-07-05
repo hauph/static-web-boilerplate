@@ -1,12 +1,29 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
 const fs = require('fs');
+
+// Prepare list of CDN plugins in array 'tags'
+let tags = [];
+const globalPluginList = JSON.parse(
+  fs.readFileSync(
+    path.resolve('.', 'src/scripts/global-plugin-list.json'),
+    'utf8',
+  ),
+);
+tags = globalPluginList.css.concat(globalPluginList.js);
 
 // Prepare plugins
 const plugins = [
   new MiniCssExtractPlugin({
     filename: './style/main.css?v=[contenthash]',
+  }),
+  // This magical plugin will add CSS or JS links from CDN to HTML pages
+  new HtmlWebpackTagsPlugin({
+    tags,
+    append: false,
+    usePublicPath: false,
   }),
   new HtmlWebpackPlugin({
     template: 'src/index.html',
@@ -19,7 +36,8 @@ const plugins = [
     },
   }),
 ];
-// Create more HtmlWebpackPlugin
+
+// Create more HtmlWebpackPlugin instances
 const files = fs.readdirSync(path.resolve('.', 'src/pages'), 'utf8');
 files.forEach((file) => {
   const page = new HtmlWebpackPlugin({
