@@ -1,6 +1,6 @@
 # Static Web Boilerplate
 
-Simple boilerplate for developing static HTML projects using `Webpack`, `SCSS`. It is also configured with `webpack-dev-server`, `eslint`, `prettier`, `stylelint` and `babel`.
+Simple boilerplate for developing static HTML projects using `Webpack`, `SCSS`. It is also configured with `nodemon`, `webpack-dev-server`, `eslint`, `prettier`, `stylelint` and `babel`.
 
 ## Folder Structure
 
@@ -46,7 +46,7 @@ Simple boilerplate for developing static HTML projects using `Webpack`, `SCSS`. 
 - There are 2 ways to add external links and scripts:
   - Particular: add link and script tags to page you want. This is the classic way and added links and scripts will only work within that page.
   - Globally: add links of CSS and JS to file `global-plugin-list.json`. Added links will be imported to all pages.
-  ```
+  ```json
     // Example
     {
         "css": [
@@ -65,3 +65,10 @@ Simple boilerplate for developing static HTML projects using `Webpack`, `SCSS`. 
 - `npm run start` or `npm start`: Start development server, open http://localhost:1802.
 - `npm run build`: Build `src` and create `build` folder for production.
 - `npm run start:prod`: Build `src` and create `build` folder for production, then start production server on http://localhost:5001. This will show you how your project looks like on a real server.
+
+## ESLint + Prettier
+
+[ESLint](https://eslint.org/) takes care of the code-quality. [Prettier](https://prettier.io/) takes care of all the formatting.
+
+1. Install [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+2. Install [Prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
