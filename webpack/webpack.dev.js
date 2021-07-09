@@ -18,6 +18,6 @@ module.exports = merge(common, {
     new ESLintPlugin({}),
     new StylelintPlugin({ fix: true }),
     new WebpackNotifierPlugin({ onlyOnError: true }),
-    new OpenBrowserOncePlugin('http://localhost:1802'),
+    // new OpenBrowserOncePlugin('http://localhost:1802'),
   ],
 });

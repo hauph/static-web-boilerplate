@@ -1,6 +1,6 @@
 # Static Web Boilerplate
 
-Simple boilerplate for developing static web projects using `Webpack`, `SCSS`. It is also configured with `webpack-dev-server`, `eslint`, `prettier`, `stylelint`and `babel`.
+Simple boilerplate for developing static HTML projects using `Webpack`, `SCSS`. It is also configured with `webpack-dev-server`, `eslint`, `prettier`, `stylelint` and `babel`.
 
 ## Folder Structure
 
