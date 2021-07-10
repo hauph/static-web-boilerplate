@@ -2,6 +2,12 @@
 
 Simple boilerplate for developing static HTML projects using `Webpack`, `SCSS`. It is also configured with `nodemon`, `webpack-dev-server`, `eslint`, `prettier`, `stylelint` and `babel`.
 
+## Installation
+
+1. Clone source code.
+2. Run `npm install` (or `npm i`).
+3. Run `npm run makedir` to install missing folders (src/fonts, src/images, src/pages, src/plugins). These folders are missing because Git ignores empty directories. (See the [Git FAQ](https://git.wiki.kernel.org/index.php/GitFaq#Can_I_add_empty_directories.3F))
+  
 ## Folder Structure
 
 ```bash
@@ -62,6 +68,7 @@ Simple boilerplate for developing static HTML projects using `Webpack`, `SCSS`. 
 
 ## Usage
 
+- `npm run makedir`: Install missing folders (src/fonts, src/ images, src/pages, src/plugins).
 - `npm run start` or `npm start`: Start development server, open http://localhost:1802.
 - `npm run build`: Build `src` and create `build` folder for production.
 - `npm run start:prod`: Build `src` and create `build` folder for production, then start production server on http://localhost:5001. This will show you how your project looks like on a real server.
@@ -72,3 +79,7 @@ Simple boilerplate for developing static HTML projects using `Webpack`, `SCSS`. 
 
 1. Install [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 2. Install [Prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+
+## Note
+
+In case you have problem when switching between Git branches, try running `npm run makedir`.

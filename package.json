@@ -4,6 +4,7 @@
   "description": "Simple boilerplate for developing static web projects",
   "main": "index.js",
   "scripts": {
+    "makedir": "make-dir src/fonts; make-dir src/images; make-dir src/pages; make-dir src/plugins",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon",
     "start:prod": "npm run build && serve -l 5001 build",
@@ -60,6 +61,7 @@
     "file-loader": "^6.2.0",
     "html-loader": "^2.1.2",
     "import-glob-loader": "^1.1.0",
+    "make-dir-cli": "^3.0.0",
     "node-sass": "^6.0.1",
     "nodemon": "^2.0.10",
     "postcss-loader": "^6.1.0",

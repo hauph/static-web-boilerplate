@@ -93,8 +93,7 @@ module.exports = {
       },
       {
         test: /\.(gif|png|jpe?g|svg|woff|eot|ttf|woff2)$/,
-        // use: 'url-loader',
-        type: 'asset/resource',
+        type: 'asset/inline',
       },
       {
         test: /\.html$/i,
