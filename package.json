@@ -4,7 +4,7 @@
   "description": "Simple boilerplate for developing static web projects",
   "main": "index.js",
   "scripts": {
-    "makedir": "make-dir src/fonts; make-dir src/images; make-dir src/pages; make-dir src/plugins",
+    "makedir": "make-dir src/fonts & make-dir src/images & make-dir src/pages & make-dir src/plugins",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon",
     "start:prod": "npm run build && serve -l 5001 build",
