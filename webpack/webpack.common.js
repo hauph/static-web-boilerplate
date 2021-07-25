@@ -78,8 +78,6 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           'css-hot-loader',
           'css-loader',
-          'sass-loader',
-          'import-glob-loader',
           {
             loader: 'postcss-loader',
             options: {
@@ -89,6 +87,8 @@ module.exports = {
               },
             },
           },
+          'sass-loader',
+          'import-glob-loader',
         ],
       },
       {
