@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "makedir": "make-dir src/fonts & make-dir src/images & make-dir src/pages & make-dir src/plugins",
+    "mkdir": "mkdirp src/fonts & mkdirp src/images & mkdirp src/pages & mkdirp src/plugins",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon",
     "start:prod": "npm run build && serve -l 5001 build",
@@ -62,6 +63,7 @@
     "html-loader": "^2.1.2",
     "import-glob-loader": "^1.1.0",
     "make-dir-cli": "^3.0.0",
+    "mkdirp": "^1.0.4",
     "node-sass": "^6.0.1",
     "nodemon": "^2.0.10",
     "postcss-loader": "^6.1.0",

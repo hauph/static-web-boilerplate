@@ -47,8 +47,8 @@ Simple boilerplate for developing static HTML projects using `Webpack`, `SCSS`. 
 
 ## Documentation
 
-- All the source code will be inside `src` directory.
-- This boilerplate supports multiple pages. To use this, create your page (**html** file) inside `pages` folder. Please note that this boilerplate does not support nested HTML pages, so folders created inside `pages` are prohibited.
+- All the source code will be inside **src** directory.
+- This boilerplate supports multiple pages. To use this, create your page (**html** file) inside **pages** folder. Please note that this boilerplate does not support nested HTML pages, so folders created inside **pages** are prohibited.
 - There are 2 ways to add external links and scripts:
   - Particular: add link and script tags to page you want. This is the classic way and added links and scripts will only work within that page.
   - Globally: add links of CSS and JS to file `global-plugin-list.json`. Added links will be imported to all pages.
@@ -68,10 +68,10 @@ Simple boilerplate for developing static HTML projects using `Webpack`, `SCSS`. 
 
 ## Usage
 
-- `npm run makedir`: Install missing folders (src/fonts, src/ images, src/pages, src/plugins).
+- `npm run makedir` or `npm run mkdir`: Install missing folders (src/fonts, src/ images, src/pages, src/plugins).
 - `npm run start` or `npm start`: Start development server, open http://localhost:1802.
-- `npm run build`: Build `src` and create `build` folder for production.
-- `npm run start:prod`: Build `src` and create `build` folder for production, then start production server on http://localhost:5001. This will show you how your project looks like on a real server.
+- `npm run build`: Build **src** and create **build** folder for production.
+- `npm run start:prod`: Build **src** and create **build** folder for production, then start production server on http://localhost:5001. This will show you how your project looks like on a real server.
 
 ## ESLint + Prettier
 
@@ -82,4 +82,14 @@ Simple boilerplate for developing static HTML projects using `Webpack`, `SCSS`. 
 
 ## Note
 
-In case you have problem when switching between Git branches, try running `npm run makedir`.
+1. Run `npm run mkdir` instead if `npm run makedir` does not work on your computer. If `npm run mkdir` still does not work, please manually create 4 folders **fonts**, **images**, **pages**, **plugins** (*to make sure you can also create a placeholder file `.gitkeep` in each folder*) to **src** folder. 
+
+2. In case you have problem when switching between Git branches, it may be because you are missing 4 folders  **fonts**, **images**, **pages**, **plugins** in **src** folder. Please follow this note's point 1 to fix it.
+
+3. If you keep seeing `prettier` warnings, it may be because `eslint` auto fix has not worked yet. To enable `eslint` auto fix, please open VS Code's `settings.json` and add the following lines of code:
+``` json
+"editor.codeActionsOnSave": {
+  "source.fixAll.eslint": true
+}
+```
+(*Also make sure you have installed Eslint and Prettier extensions*)
