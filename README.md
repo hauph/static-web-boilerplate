@@ -73,19 +73,18 @@ Simple boilerplate for developing static HTML projects using `Webpack`, `SCSS`. 
 - `npm run build`: Build **src** and create **build** folder for production.
 - `npm run start:prod`: Build **src** and create **build** folder for production, then start production server on http://localhost:5001. This will show you how your project looks like on a real server.
 
-## ESLint + Prettier
+## VSCode + ESLint + Prettier
 
-[ESLint](https://eslint.org/) takes care of the code-quality. [Prettier](https://prettier.io/) takes care of all the formatting.
+[VSCode](https://code.visualstudio.com/) is a lightweight but powerful source code editor. [ESLint](https://eslint.org/) takes care of the code-quality. [Prettier](https://prettier.io/) takes care of all the formatting.
 
-1. Install [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-2. Install [Prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+1. Install [VSCode](https://code.visualstudio.com/Download)
+2. Install [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+3. Install [Prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
 ## Note
 
-1. Run `npm run mkdir` instead if `npm run makedir` does not work on your computer. If `npm run mkdir` still does not work, please manually create 4 folders **fonts**, **images**, **pages**, **plugins** (*to make sure you can also create a placeholder file `.gitkeep` in each folder*) to **src** folder. 
-
+1. Run `npm run mkdir` instead if `npm run makedir` does not work on your computer. If `npm run mkdir` still does not work, please manually create 4 folders **fonts**, **images**, **pages**, **plugins** (*to make sure you can also create a placeholder file `.gitkeep` in each folder*) to **src** folder.
 2. In case you have problem when switching between Git branches, it may be because you are missing 4 folders  **fonts**, **images**, **pages**, **plugins** in **src** folder. Please follow this note's point 1 to fix it.
-
 3. If you keep seeing `prettier` warnings, it may be because `eslint` auto fix has not worked yet. To enable `eslint` auto fix, please open VS Code's `settings.json` and add the following lines of code:
 ``` json
 "editor.codeActionsOnSave": {
