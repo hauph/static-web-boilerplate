@@ -52,19 +52,20 @@ Simple boilerplate for developing static HTML projects using `Webpack`, `SCSS`. 
 - There are 2 ways to add external links and scripts:
   - Particular: add link and script tags to page you want. This is the classic way and added links and scripts will only work within that page.
   - Globally: add links of CSS and JS to file `global-plugin-list.json`. Added links will be imported to all pages.
-  ```json
-    // Example
-    {
-        "css": [
-            "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        ],
-        "js": [
-            "https://code.jquery.com/jquery-3.6.0.slim.min.js",
-            "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
-            "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        ]
-    }
-  ```
+  
+    ```json
+      // Example
+      {
+          "css": [
+              "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          ],
+          "js": [
+              "https://code.jquery.com/jquery-3.6.0.slim.min.js",
+              "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
+              "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+          ]
+      }
+    ```
 
 ## Usage
 
@@ -86,9 +87,11 @@ Simple boilerplate for developing static HTML projects using `Webpack`, `SCSS`. 
 1. Run `npm run mkdir` instead if `npm run makedir` does not work on your computer. If `npm run mkdir` still does not work, please manually create 4 folders **fonts**, **images**, **pages**, **plugins** (*to make sure you can also create a placeholder file `.gitkeep` in each folder*) to **src** folder.
 2. In case you have problem when switching between Git branches, it may be because you are missing 4 folders  **fonts**, **images**, **pages**, **plugins** in **src** folder. Please follow this note's point 1 to fix it.
 3. If you keep seeing `prettier` warnings, it may be because `eslint` auto fix has not worked yet. To enable `eslint` auto fix, please open VS Code's `settings.json` and add the following lines of code:
-``` json
-"editor.codeActionsOnSave": {
-  "source.fixAll.eslint": true
-}
-```
-(*Also make sure you have installed Eslint and Prettier extensions*)
+
+    ``` json
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+    ```
+
+    (*Also make sure you have installed Eslint and Prettier extensions*)
