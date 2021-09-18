@@ -1,13 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simple Web Boilerplate</title>
-</head>
-<body>
-    <p>Simple Web Boilerplate</p>
-    <p>Hello world. This is index.html</p>
-</body>
+  </head>
+  <body>
+    <div id="cat">
+      <h2>Cat Clicker</h2>
+      <select name="cat" id="cat-select">
+        <option value="none">Pick a cat</option>
+      </select>
+      <div class="cat__wrapper hidden">
+        <p class="cat__name">Cat</p>
+        <p class="cat--status"></p>
+        <img src="" class="cat__img" alt="" />
+        <div class="cat__nicknames">
+          <p>Nicknames</p>
+          <ul></ul>
+        </div>
+        <p>Number of clicks: <span class="number-clicks">0</span></p>
+      </div>
+      <div class="admin hidden">
+        <button id="btn--cat-admin">Admin</button>
+        <div class="admin__form hidden">
+          <form action="" id="update-cat">
+            <div class="form-group">
+              <label for="name">Update cat's name</label>
+              <input type="text" name="name" />
+            </div>
+            <div class="form-group">
+              <label for="name">Update cat's image</label>
+              <input type="text" name="img_url" />
+            </div>
+            <div class="form-group">
+              <label for="name">Update number of clicks</label>
+              <input type="number" name="counter" />
+            </div>
+            <div class="action-groups">
+              <button id="btn--cat-cancel">Cancel</button>
+              <button id="btn--cat-save">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <div id="retain">
+      <h2>Retain</h2>
+      <form id="new-note-form" class="new-note-form">
+        <input id="new-note-content" class="new-note-content" />
+      </form>
+      <ul id="notes" class="notes"></ul>
+    </div>
+
+    <hr />
+
+    <div id="school-attendance">
+      <h2>Udacity Attendance</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th class="name-col">Student Name</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+            <th>9</th>
+            <th>10</th>
+            <th>11</th>
+            <th>12</th>
+            <th class="missed-col">Days Missed-col</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </html>

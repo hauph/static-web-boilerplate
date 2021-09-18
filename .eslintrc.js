@@ -48,6 +48,7 @@ module.exports = {
     'max-len': ['error', { code: 300 }],
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
+    'max-classes-per-file': 'off',
   },
   settings: {
     'import/resolver': 'webpack',
