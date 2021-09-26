@@ -5,14 +5,16 @@ const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
 const fs = require('fs');
 
 // Prepare list of CDN plugins in array 'tags'
-let tags = [];
+let links = [];
+let scripts = [];
 const globalPluginList = JSON.parse(
   fs.readFileSync(
     path.resolve('.', 'src/scripts/global-plugin-list.json'),
     'utf8',
   ),
 );
-tags = globalPluginList.css.concat(globalPluginList.js);
+links = globalPluginList.css;
+scripts = globalPluginList.js;
 
 // Prepare plugins
 const plugins = [
@@ -21,7 +23,8 @@ const plugins = [
   }),
   // This magical plugin will add CSS or JS links from CDN to HTML pages
   new HtmlWebpackTagsPlugin({
-    tags,
+    links,
+    scripts,
     append: false,
     usePublicPath: false,
   }),
@@ -58,12 +61,14 @@ files.forEach((file) => {
     plugins.push(page);
   }
 });
-
 module.exports = {
-  entry: './src/scripts/index.js',
+  entry:
+    process.env.ENV === 'development'
+      ? './src/scripts/index.js'
+      : ['./src/scripts/index.js', './src/sw/sw.js'],
   output: {
     path: path.resolve('.', 'build'),
-    filename: './js/bundle.js?v=[contenthash]',
+    filename: './js/[name].js?v=[contenthash]',
   },
   module: {
     rules: [
