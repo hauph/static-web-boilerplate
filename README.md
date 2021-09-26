@@ -1,6 +1,8 @@
 # Static Web Boilerplate
 
-Simple boilerplate for developing static HTML projects using `Webpack`, `SCSS`. It is also configured with `nodemon`, `webpack-dev-server`, `eslint`, `prettier`, `stylelint` and `babel`.
+Simple boilerplate for developing static HTML projects using `Webpack`, `SCSS`. It is configured with `nodemon`, `webpack-dev-server`, `eslint`, `prettier`, `stylelint` and `babel`.
+
+This boilerplate also supports PWA with the use of `workbox-webpack-plugin`.
 
 ## Installation
 
@@ -29,6 +31,8 @@ Simple boilerplate for developing static HTML projects using `Webpack`, `SCSS`. 
 │   │   │   ├── css.css                 # Main CSS file (in case you want to use CSS)
 │   │   ├── /scss/                      # Source of your SCSS files
 │   │   │   ├── style.scss              # Main SCSS file
+│   ├── sw 
+│   │   ├── sw.js                       # Service worker file            
 │   ├── index.html                      # Main page
 ├── /webpack/
 │   ├── webpack.common.js               # Webpack configuration which is used on both development and production modes
@@ -72,7 +76,15 @@ Simple boilerplate for developing static HTML projects using `Webpack`, `SCSS`. 
 - `npm run makedir` or `npm run mkdir`: Install missing folders (src/fonts, src/ images, src/pages, src/plugins).
 - `npm run start` or `npm start`: Start development server, open http://localhost:1802.
 - `npm run build`: Build **src** and create **build** folder for production.
-- `npm run start:prod`: Build **src** and create **build** folder for production, then start production server on http://localhost:5001. This will show you how your project looks like on a real server.
+- `npm run start:prod`: Build **src** and create **build** folder for production, then start production server on http://localhost:5001. This will show you how your project looks like on a real server. This command is also used to test PWA features.
+  - The  `npm run start:prod` commands use `serve` package for creating a demo server on local.
+    ```
+      "npm run build && serve -l 5001 build",
+    ```
+    This boilerplate also supports `http-server` package, so if you prefer it to `serve`, please replace `npm run start:prod`'s value with:
+    ```
+      "npm run build && http-server build -c-1 -p 5001",
+    ```
 
 ## VSCode + ESLint + Prettier
 
@@ -93,5 +105,13 @@ Simple boilerplate for developing static HTML projects using `Webpack`, `SCSS`. 
       "source.fixAll.eslint": true
     }
     ```
-
     (*Also make sure you have installed Eslint and Prettier extensions*)
+4. Some PWA features only run on HTTPS, so to test them locally, please follow:
+     - Paste `chrome://flags/#unsafely-treat-insecure-origin-as-secure` to Google Chrome's address bar.
+     - Enable `Insecure origins treated as secure`.
+     - Input local domains you want serviceWorker to be able to run on, separate each of them with comma. For example:
+      ```
+      http://localhost:1802,http://localhost:5001
+      ```
+     - Run `npm run start:prod`
+  
