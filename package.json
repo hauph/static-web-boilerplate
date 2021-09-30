@@ -1,6 +1,6 @@
 {
   "name": "static-web-boilerplate",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "Simple boilerplate for developing static web projects",
   "main": "index.js",
   "scripts": {
