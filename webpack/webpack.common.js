@@ -43,29 +43,54 @@ const plugins = [
 // Create more HtmlWebpackPlugin instances
 const files = fs.readdirSync(path.resolve('.', 'src/pages'), 'utf8');
 files.forEach((file) => {
-  const fileContent = fs.readFileSync(
-    path.resolve('.', `src/pages/${file}`),
-    'utf8',
-  );
-  if (fileContent.length) {
-    const page = new HtmlWebpackPlugin({
-      template: `src/pages/${file}`,
-      inject: 'body',
-      filename: `pages/${file}`,
-      minify: {
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true,
-      },
+  try {
+    // Case 1: html files in 'pages' folder
+    const fileContent = fs.readFileSync(
+      path.resolve('.', `src/pages/${file}`),
+      'utf8',
+    );
+    if (fileContent.length) {
+      const page = new HtmlWebpackPlugin({
+        template: `src/pages/${file}`,
+        inject: 'body',
+        filename: `pages/${file}`,
+        minify: {
+          minifyJS: true,
+          minifyCSS: true,
+          minifyURLs: true,
+        },
+      });
+      plugins.push(page);
+    }
+  } catch (err) {
+    // Case 2: folder/*.html in 'pages' folder
+    const subfiles = fs.readdirSync(
+      path.resolve('.', `src/pages/${file}`),
+      'utf8',
+    );
+    subfiles.forEach((f) => {
+      const fileContent = fs.readFileSync(
+        path.resolve('.', `src/pages/${file}/${f}`),
+        'utf8',
+      );
+      if (fileContent.length) {
+        const page = new HtmlWebpackPlugin({
+          template: `src/pages/${file}/${f}`,
+          inject: 'body',
+          filename: `pages/${file}/${f}`,
+          minify: {
+            minifyJS: true,
+            minifyCSS: true,
+            minifyURLs: true,
+          },
+        });
+        plugins.push(page);
+      }
     });
-    plugins.push(page);
   }
 });
 module.exports = {
-  entry:
-    process.env.ENV === 'development'
-      ? './src/scripts/index.js'
-      : ['./src/scripts/index.js', './src/sw/sw.js'],
+  entry: './src/scripts/index.js',
   output: {
     path: path.resolve('.', 'build'),
     filename: './js/[name].js?v=[contenthash]',
