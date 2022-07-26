@@ -13,6 +13,7 @@ module.exports = {
     jquery: true,
     commonjs: true,
     es6: true,
+    'jest/globals': true,
   },
   extends: ['airbnb-base', 'prettier'],
   plugins: ['prettier', 'html'],
