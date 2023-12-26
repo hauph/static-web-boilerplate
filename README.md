@@ -12,6 +12,8 @@ Simple boilerplate for developing static HTML projects using `Webpack`, `SCSS`. 
 
 ```bash
 .
+├── /.github/ 
+│   ├── /workflows/                     # Github actions for deploying to Github Pages      
 ├── /build/                             # All the built files and folders which are used for production will go here
 ├── /node_modules/                      # 3rd-party libraries and utilities installed via npm
 ├── /src/                               # The source code of the application
@@ -67,12 +69,16 @@ Simple boilerplate for developing static HTML projects using `Webpack`, `SCSS`. 
       }
     ```
 
+## Github Pages deployment
+
+To deploy your project to Github Pages, create branch `release` and push it to Github. Github will automatically build and deploy your project to Github Pages on new branch `gh-page`. You can change the name of the branch in file `.github/workflows/main.yml`.
+
 ## Usage
 
 - `npm run makedir` or `npm run mkdir`: Install missing folders (src/fonts, src/ images, src/pages, src/plugins).
-- `npm run start` or `npm start`: Start development server, open http://localhost:1802.
+- `npm run start` or `npm start`: Start development server, open `http://localhost:1802`.
 - `npm run build`: Build **src** and create **build** folder for production.
-- `npm run start:prod`: Build **src** and create **build** folder for production, then start production server on http://localhost:5001. This will show you how your project looks like on a real server.
+- `npm run start:prod`: Build **src** and create **build** folder for production, then start production server on `http://localhost:5001`. This will show you how your project looks like on a real server.
 
 ## VSCode + ESLint + Prettier
 
